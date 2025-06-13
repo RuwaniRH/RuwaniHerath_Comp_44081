@@ -30,3 +30,4 @@ class ImprovedRedemptionModel:
         self.plot_forecast(forecast)
         return forecast
 
+      
