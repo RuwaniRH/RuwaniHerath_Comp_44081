@@ -11,4 +11,5 @@ The codebase was fully modular:
 The client-friendly and technical summary answers are contained in “Written Exam_44081.md”.
 
 
-Some parts of this work were assisted by AI tools, including ChatGPT (by OpenAI) for code refinement and writing support and Grammarly for grammar and style enhancement. All final content was thoroughly reviewed and curated by myself to ensure accuracy, clarity, and appropriateness.
+Portions of this work were assisted by Grammarly for grammar and style enhancements. All content was carefully reviewed and finalized by me to ensure clarity, accuracy, and appropriateness.
+
