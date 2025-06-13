@@ -51,6 +51,9 @@ def plot_forecast(df, forecast_df, target_col='y', model_name='Model'):
     plt.tight_layout()
     plt.grid(True)
     plt.show()
+    
+    plt.savefig(f'output/{model_name.lower().replace(" ", "_")}_forecast.png')  # e.g., output/redemption_model_forecast.png
+    plt.close()
 
 
 def rolling_origin_backtest(df, model_class, target, forecast_horizon=30, min_train_days=365):
