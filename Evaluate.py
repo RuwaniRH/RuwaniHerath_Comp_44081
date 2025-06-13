@@ -6,8 +6,6 @@ import matplotlib.pyplot as plt
 
 def evaluate_forecast(actual, predicted, lower=None, upper=None, alpha=0.05):
     """
-    Evaluate forecast performance.
-    
     Parameters:
     - actual: pd.Series of actual observed values
     - predicted: pd.Series of predicted values
@@ -16,7 +14,7 @@ def evaluate_forecast(actual, predicted, lower=None, upper=None, alpha=0.05):
     - alpha: significance level (e.g., 0.05 for 95% interval)
 
     Returns:
-    - dict with RMSE, MAE, and coverage (if intervals provided)
+    - dict with RMSE, MAE, and coverage 
     """
     rmse = np.sqrt(mean_squared_error(actual, predicted))
     mae = mean_absolute_error(actual, predicted)
@@ -35,8 +33,6 @@ def evaluate_forecast(actual, predicted, lower=None, upper=None, alpha=0.05):
 
 def plot_forecast(df, forecast_df, target_col='y', model_name='Model'):
     """
-    Plot forecast vs actual with prediction intervals.
-
     Parameters:
     - df: DataFrame with actuals (must contain 'ds' and target_col)
     - forecast_df: Prophet-style forecast DataFrame (must contain 'ds', 'yhat', 'yhat_lower', 'yhat_upper')
@@ -59,8 +55,6 @@ def plot_forecast(df, forecast_df, target_col='y', model_name='Model'):
 
 def rolling_origin_backtest(df, model_class, target, forecast_horizon=30, min_train_days=365):
     """
-    Perform rolling-origin backtesting.
-
     Parameters:
     - df: full DataFrame with datetime index
     - model_class: class implementing Prophet-style interface (fit, forecast)
