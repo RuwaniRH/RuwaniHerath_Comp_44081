@@ -1,0 +1,51 @@
+from prophet import Prophet
+import pandas as pd
+
+class ImprovedRedemptionModel:
+    def __init__(self, df, target='Redemption Count'):
+        self.df = df
+        self.target = target
+        self.model = Prophet(daily_seasonality=True, weekly_seasonality=True, yearly_seasonality=True)
+    
+    def prepare_data(self):
+        df_prophet = self.df[[self.target]].reset_index()
+        df_prophet.columns = ['ds', 'y']
+        return df_prophet
+
+    def fit(self):
+        df_train = self.prepare_data()
+        self.model.fit(df_train)
+
+    def forecast(self, days=30):
+        future = self.model.make_future_dataframe(periods=days)
+        forecast = self.model.predict(future)
+        return forecast
+
+    def plot_forecast(self, forecast):
+        self.model.plot(forecast)
+
+    def run(self):
+        self.fit()
+        forecast = self.forecast()
+        self.plot_forecast(forecast)
+        return forecast
+
+from data_loader import load_data
+from features import add_time_features, add_lag_features, add_rolling_features
+from model_redemption import ImprovedRedemptionModel
+
+# Load data
+df = load_data('./data/Toronto Island Ferry Ticket Counts.csv')
+
+# Feature engineering (optional if using Prophet)
+df = add_time_features(df)
+df = add_lag_features(df)
+df = add_rolling_features(df)
+
+# Drop rows with NA (from lag/rolling windows)
+df.dropna(inplace=True)
+
+# Run improved Prophet model
+model = ImprovedRedemptionModel(df)
+forecast = model.run()
+
