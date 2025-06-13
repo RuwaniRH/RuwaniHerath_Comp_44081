@@ -1,3 +1,6 @@
 pandas
-prophet
+numpy
 matplotlib
+scikit-learn
+prophet
+pytest
