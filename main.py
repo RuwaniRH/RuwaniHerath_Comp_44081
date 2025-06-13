@@ -3,10 +3,8 @@ from features import add_time_features, add_lag_features, add_rolling_features
 from model_redemption import ImprovedRedemptionModel
 from model_sales import SalesForecastModel
 
-# Load and preprocess data
 df = load_data('./data/Toronto Island Ferry Ticket Counts.csv')
 
-# Optional: add features (for other ML models, not needed for Prophet)
 df = add_time_features(df)
 df = add_lag_features(df, target_col='Redemption Count')
 df = add_lag_features(df, target_col='Sales Count')
