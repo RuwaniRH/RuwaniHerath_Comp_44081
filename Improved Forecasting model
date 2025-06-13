@@ -30,22 +30,3 @@ class ImprovedRedemptionModel:
         self.plot_forecast(forecast)
         return forecast
 
-from data_loader import load_data
-from features import add_time_features, add_lag_features, add_rolling_features
-from model_redemption import ImprovedRedemptionModel
-
-# Load data
-df = load_data('./data/Toronto Island Ferry Ticket Counts.csv')
-
-# Feature engineering (optional if using Prophet)
-df = add_time_features(df)
-df = add_lag_features(df)
-df = add_rolling_features(df)
-
-# Drop rows with NA (from lag/rolling windows)
-df.dropna(inplace=True)
-
-# Run improved Prophet model
-model = ImprovedRedemptionModel(df)
-forecast = model.run()
-
