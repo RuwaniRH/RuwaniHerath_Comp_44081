@@ -1,8 +1,8 @@
 from data_loader import load_data
 from features import add_time_features, add_lag_features, add_rolling_features
-from model_redemption import ImprovedRedemptionModel
-from model_sales import SalesForecastModel
-from evaluate import evaluate_forecast, plot_forecast
+from Improved_Forecasting_model import ImprovedRedemptionModel
+from Sales_forecasting_model import SalesForecastModel
+from Evaluate import evaluate_forecast, plot_forecast
 
 df = load_data('./Toronto Island Ferry Ticket Counts.csv')
 
