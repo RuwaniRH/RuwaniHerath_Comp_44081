@@ -4,7 +4,7 @@ from model_redemption import ImprovedRedemptionModel
 from model_sales import SalesForecastModel
 from evaluate import evaluate_forecast, plot_forecast
 
-df = load_data('./data/Toronto Island Ferry Ticket Counts.csv')
+df = load_data('./Toronto Island Ferry Ticket Counts.csv')
 
 df = add_time_features(df)
 df = add_lag_features(df, target_col='Redemption Count')
